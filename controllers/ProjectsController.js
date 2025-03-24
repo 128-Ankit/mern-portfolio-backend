@@ -18,20 +18,20 @@ const getProjects = async (req, res) => {
 // create a new project
 const createProject = async (req, res) => {
     try {
-        const {title, description, skills, category, image, gitHub, website} = req.body;
+        const {title, description, technologies, category, image, github, live} = req.body;
 
-        if(!title || !description || !skills || !category || !image || !gitHub || !website){
+        if(!title || !description || !technologies || !category || !image || !github){
             return res.status(400).json({message: 'All fields are required'});
         }
 
         const newProject = new Projects({
             title,
             description,
-            skills,
+            technologies,
             category,
             image,
-            gitHub,
-            website
+            github,
+            live
         });
 
         await newProject.save();
@@ -48,7 +48,7 @@ const createProject = async (req, res) => {
 // update a project
 const updateProject = async (req, res) => {
     try {
-        const {title, description, skills, category, image, gitHub, website} = req.body;
+        const {title, description, technologies, category, image, github, live} = req.body;
 
         const {id} = req.params;
 
@@ -59,11 +59,11 @@ const updateProject = async (req, res) => {
         const updatedProject = await Projects.findByIdAndUpdate(id, {
             title,
             description,
-            skills,
+            technologies,
             category,
             image,
-            gitHub,
-            website
+            github,
+            live
         }, {new: true});
 
         return res.status(200).json({

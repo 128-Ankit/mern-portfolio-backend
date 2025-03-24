@@ -9,23 +9,23 @@ const ProjectsSchema = new mongsoose.Schema({
         type: String,
         required: true
     },
-    Skills:{
+    technologies:{
         type: [String],  
-        required: true
-    },
-    category:{
-        type: String,
         required: true
     },
     image:{
         type: String,
         required: true
     },
-    gitHub:{
+    github:{
         type: String,
         required: true
     },
-    website:{
+    live:{
+        type: String,
+        required: true
+    },
+    category:{
         type: String,
         required: true
     }

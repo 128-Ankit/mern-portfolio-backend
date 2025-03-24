@@ -9,7 +9,7 @@ const {
 } = require('../controllers/ProjectsController');
 const authMiddleware = require('../middleware/authMiddleware');
 
-router.get('/', authMiddleware, getProjects);
+router.get('/', getProjects);
 router.post('/', authMiddleware, createProject);
 router.put('/:id', authMiddleware, updateProject);
 router.delete('/:id', authMiddleware, deleteProject);
